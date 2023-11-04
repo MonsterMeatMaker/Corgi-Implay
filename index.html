@@ -116,6 +116,8 @@
 
     <script>   // Пользовательский код
 
+      let isFullscreen = false;
+
       jQuery(document).ready(function($) // страница прогружена
       {
         vkBridge.send('VKWebAppInit');
@@ -123,7 +125,9 @@
 
       function SetFullscreen ()
       {
-        myGameInstance.SetFullscreen(1);
+        isFullscreen = !isFullscreen;
+
+        myGameInstance.SetFullscreen(isFullscreen);
       }
 
     </script>
