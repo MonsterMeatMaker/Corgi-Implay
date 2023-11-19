@@ -130,6 +130,25 @@
         myGameInstance.SetFullscreen(isFullscreen);
       }
 
+      function SetData ()
+      {
+        console.log(data);
+        bridge.send('VKWebAppStorageSet', {
+            key: 'coins',
+            value: data
+          })
+          .then((data) => { 
+            if (data.result) {
+              // Значение переменной задано
+              console.log("GameDataSaved");
+            }
+          })
+          .catch((error) => {
+            // Ошибка
+            console.log(error);
+          });
+      }
+
     </script>
   </body>
 </html>
