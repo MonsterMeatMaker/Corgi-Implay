@@ -133,7 +133,7 @@
       function SetData ()
       {
         console.log(data);
-        bridge.send('VKWebAppStorageSet', {
+        vkBridge.send('VKWebAppStorageSet', {
             key: 'coins',
             value: data
           })
