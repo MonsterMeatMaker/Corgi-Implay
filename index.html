@@ -137,10 +137,10 @@
             key: 'coins',
             value: data
           })
-          .then((info) => { 
-            if (info.result) {
+          .then((data) => { 
+            if (data.result) {
               // Значение переменной задано
-              console.log('DataSaved');
+              console.log(data);
             }
           })
           .catch((error) => {
