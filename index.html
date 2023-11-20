@@ -96,14 +96,14 @@
 
       loadingBar.style.display = "block";
 
-      var myGameInstance = null; // для обращения к Unity
+      var instance = null; // для обращения к Unity
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                myGameInstance = unityInstance;
+                instance = unityInstance;
                 loadingBar.style.display = "none";
               }).catch((message) => {
                 alert(message);
@@ -127,7 +127,7 @@
       {
         isFullscreen = !isFullscreen;
 
-        myGameInstance.SetFullscreen(isFullscreen);
+        instance.SetFullscreen(isFullscreen);
       }
 
       function SetData (data)
@@ -156,7 +156,7 @@
           if (data.keys) {
             // Значения получены
             console.log(data);
-            unityInstance.SendMessage('VKSDK', 'DataGetter', JSON.stringify(data));
+            instance.SendMessage('VKSDK', 'DataGetter', JSON.stringify(data));
           }
         })
         .catch((error) => {
