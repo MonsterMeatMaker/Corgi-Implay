@@ -132,6 +132,7 @@
 
       function SetData (data)
       {
+        console.log(data);
         vkBridge.send('VKWebAppStorageSet', {
             key: 'coins',
             value: data
