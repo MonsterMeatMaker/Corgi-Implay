@@ -132,7 +132,6 @@
 
       function SetCoinsBalance (coins)
       {
-        console.log(coins);
         vkBridge.send('VKWebAppStorageSet', {
             key: 'coins',
             value: coins
@@ -140,7 +139,6 @@
           .then((data) => { 
             if (data.result) {
               // Значение переменной задано
-              console.log(data);
               instance.SendMessage('VKSDK', 'CoinsBalanceStorageGetter', coins);
             }
           })
@@ -153,18 +151,18 @@
       function GetCoinsBalance ()
       {
         vkBridge.send('VKWebAppStorageGet', {
-        keys: ['coins']})
-        .then((data) => { 
-          if (data.keys) {
-            // Значения получены
-            console.log(data);
-            instance.SendMessage('VKSDK', 'DataStorageGetter', JSON.stringify(data));
-          }
-        })
-        .catch((error) => {
-          // Ошибка
-          console.log(error);
-        });
+            keys: ['coins']
+          })
+          .then((data) => { 
+            if (data.keys) {
+              // Значения получены
+              instance.SendMessage('VKSDK', 'DataStorageGetter', JSON.stringify(data));
+            }
+          })
+          .catch((error) => {
+            // Ошибка
+            console.log(error);
+          });
       }
 
     </script>
