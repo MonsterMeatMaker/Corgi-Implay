@@ -137,11 +137,10 @@
             key: 'coins',
             value: data
           })
-          .then((data) => { 
-            if (data.result) {
+          .then((info) => { 
+            if (info.result) {
               // Значение переменной задано
-              console.log(data);
-              instance.SendMessage('VKSDK', 'DataGetter', JSON.stringify(data));
+              console.log(info);
             }
           })
           .catch((error) => {
