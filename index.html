@@ -150,6 +150,24 @@
           });
       }
 
+      function GetCoinsBalance ()
+      {
+        vkBridge.send('VKWebAppStorageGet', {
+        keys: ['coins']})
+        .then((data) => { 
+          if (data.keys) {
+            // Значения получены
+            console.log(data);
+            console.log(JSON.stringify(data.keys));
+            //instance.SendMessage('VKSDK', 'DataGetter', JSON.stringify(data));
+          }
+        })
+        .catch((error) => {
+          // Ошибка
+          console.log(error);
+        });
+      }
+
     </script>
   </body>
 </html>
