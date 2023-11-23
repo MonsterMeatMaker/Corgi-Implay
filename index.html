@@ -141,6 +141,7 @@
             if (data.result) {
               // Значение переменной задано
               console.log(data);
+              instance.SendMessage('VKSDK', 'DataGetter', JSON.stringify(data));
             }
           })
           .catch((error) => {
