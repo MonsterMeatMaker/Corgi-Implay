@@ -158,8 +158,7 @@
           if (data.keys) {
             // Значения получены
             console.log(data);
-            console.log(JSON.stringify(data.keys));
-            //instance.SendMessage('VKSDK', 'DataGetter', JSON.stringify(data));
+            instance.SendMessage('VKSDK', 'DataStorageGetter', JSON.stringify(data));
           }
         })
         .catch((error) => {
