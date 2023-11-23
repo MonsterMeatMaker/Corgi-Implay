@@ -130,40 +130,24 @@
         instance.SetFullscreen(isFullscreen);
       }
 
-      function SetData (data)
+      function SetCoinsBalance (coins)
       {
-        console.log(data);
+        console.log(coins);
         vkBridge.send('VKWebAppStorageSet', {
             key: 'coins',
-            value: data
+            value: coins
           })
-          .then((info) => { 
-            if (info.result) {
+          .then((data) => { 
+            if (data.result) {
               // Значение переменной задано
-              console.log(info);
+              console.log(data);
+              instance.SendMessage('VKSDK', 'CoinsBalanceStorageGetter', coins);
             }
           })
           .catch((error) => {
             // Ошибка
             console.log(error);
           });
-      }
-
-      function GetData ()
-      {
-        vkBridge.send('VKWebAppStorageGet', {
-        keys: ['coins']})
-        .then((data) => { 
-          if (data.keys) {
-            // Значения получены
-            console.log(data);
-            instance.SendMessage('VKSDK', 'DataGetter', JSON.stringify(data));
-          }
-        })
-        .catch((error) => {
-          // Ошибка
-          console.log(error);
-        });
       }
 
     </script>
